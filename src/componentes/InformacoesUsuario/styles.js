@@ -25,7 +25,7 @@ export default StyleSheet.create({
   consultas: {
     fontSize: 14,
     fontFamily: "Roboto",
-    fontWeight: "400",
-    color: "#A3A3A3",
+    fontWeight: "500",
+    color: "#6a6a6a",
   },
 });

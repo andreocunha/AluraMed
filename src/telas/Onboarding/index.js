@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StatusBar, Image, FlatList } from 'react-native';
+import { View, Text, StatusBar, Image, FlatList, TouchableOpacity } from 'react-native';
 import { Botao } from '../../componentes/Botao';
 import FundoOndulado from '../../componentes/FundoOndulado';
 import { TelaDeFundo } from '../../componentes/TelaDeFundo';
@@ -9,6 +9,16 @@ import styles from './styles';
 
 export default function Onboarding({ navigation }) {
   const [fazerLogin, setFazerLogin] = useState(false);
+  const [altura, setAltura] = useState(250);
+
+  function clicoNoBotao() {
+    if(fazerLogin) {
+      navigation.navigate('Principal');
+    } else {
+      setAltura(400);
+      setFazerLogin(true);
+    }
+  }
 
   return (
     <TelaDeFundo>
@@ -38,7 +48,7 @@ export default function Onboarding({ navigation }) {
           source={require('../../assets/medica.png')} 
           style={styles.medicaImg}
         />
-        <FundoOndulado height={fazerLogin ? 400 : 250}>
+        <FundoOndulado height={altura}>
           <View style={styles.infoArea}>
             { fazerLogin ?
             <Formulario 
@@ -53,12 +63,10 @@ export default function Onboarding({ navigation }) {
               </Text>
             </View>
             }
-            <Botao 
-              texto={fazerLogin? 'Entrar' : 'Começar'}
-              state={fazerLogin}
-              setState={setFazerLogin}
-              navigation={navigation}
-            />  
+
+            <TouchableOpacity style={styles.botao} onPress={clicoNoBotao}>
+              <Text style={styles.botaoTexto}>{fazerLogin? 'Entrar' : 'Começar'}</Text>
+            </TouchableOpacity>
           </View>
         </FundoOndulado>
       </View>

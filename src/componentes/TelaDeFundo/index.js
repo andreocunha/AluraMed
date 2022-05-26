@@ -14,7 +14,7 @@ export function TelaDeFundo( { children } ) {
         source={imagemFundo} 
         style={styles.image}
         imageStyle={{
-          opacity: 0.25,
+          opacity: 0.2,
           resizeMode: "cover",
           height: '70%',
         }}

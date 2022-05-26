@@ -42,4 +42,19 @@ export default StyleSheet.create({
     color: '#A3A3A3',
     marginTop: 10,
   },
+  botao: {
+    height: 60,
+    width: "100%",
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: '#4894FF',
+    marginVertical: 10,
+  },
+  botaoTexto: {
+    fontWeight: "700",
+    fontFamily: "Roboto",
+    fontSize: 16,
+    color: '#FFFFFF',
+  }
 });
