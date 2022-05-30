@@ -12,7 +12,7 @@ export default function Onboarding({ navigation }) {
   const [altura, setAltura] = useState(250);
 
   const CustomAnimation = {
-    duration: 2000,
+    duration: 1500,
     create: {
       type: LayoutAnimation.Types.spring,
       property: LayoutAnimation.Properties.scaleXY,
@@ -26,7 +26,7 @@ export default function Onboarding({ navigation }) {
     if(fazerLogin) {
       navigation.navigate('Principal');
     } else {
-      LayoutAnimation.spring();
+      LayoutAnimation.linear();
       setAltura(400);
       setFazerLogin(true);
     }
