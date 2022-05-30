@@ -3,8 +3,6 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: "flex-start",
-    // justifyContent: "flex-start",
     paddingTop: 25,
     paddingHorizontal: 20,
   },
@@ -17,8 +15,8 @@ export default StyleSheet.create({
   detalhes: {
     fontSize: 16,
     fontFamily: "Roboto",
-    fontWeight: "400",
-    color: "#A3A3A3",
+    fontWeight: "600",
+    color: "#6a6a6a",
     marginTop: 10,
     marginBottom: 10,
   },

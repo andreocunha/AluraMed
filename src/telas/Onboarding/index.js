@@ -1,20 +1,32 @@
-import React, { useState } from 'react';
-import { View, Text, StatusBar, Image, FlatList, TouchableOpacity } from 'react-native';
-import { Botao } from '../../componentes/Botao';
+import React, { useState, useRef } from 'react';
+import { View, Text, StatusBar, Image, TouchableOpacity, LayoutAnimation } from 'react-native';
 import FundoOndulado from '../../componentes/FundoOndulado';
 import { TelaDeFundo } from '../../componentes/TelaDeFundo';
 import { Formulario } from '../../componentes/Formulario';
 import itens from './cards';
 import styles from './styles';
+import { Carrossel } from '../../componentes/Carrossel';
 
 export default function Onboarding({ navigation }) {
   const [fazerLogin, setFazerLogin] = useState(false);
   const [altura, setAltura] = useState(250);
 
+  const CustomAnimation = {
+    duration: 2000,
+    create: {
+      type: LayoutAnimation.Types.spring,
+      property: LayoutAnimation.Properties.scaleXY,
+      springDamping: 0.7
+    }
+  }
+
+  LayoutAnimation.configureNext(CustomAnimation);
+
   function clicoNoBotao() {
     if(fazerLogin) {
       navigation.navigate('Principal');
     } else {
+      LayoutAnimation.spring();
       setAltura(400);
       setFazerLogin(true);
     }
@@ -28,21 +40,14 @@ export default function Onboarding({ navigation }) {
           source={require('../../assets/logo.png')} 
           style={styles.logo} 
         />
+        
         <View style={styles.carrosselArea}>
           { !fazerLogin && (
-          <FlatList
-            data={itens}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => (
-              <Image 
-                source={item.imagem} 
-                style={{ height: '100%', width: 150 }}
-                resizeMode="contain"
-              />  
-            )}
-          />)}
+            <Carrossel 
+              data={itens}
+              tempoAnimacao={2000}
+            />
+          )}
         </View>
         <Image 
           source={require('../../assets/medica.png')} 
