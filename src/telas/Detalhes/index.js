@@ -20,7 +20,7 @@ export default function Detalhes(props) {
     };
   });
 
-  function makeRotacao(){
+  function fazerRotacao(){
     rotacao.value = withRepeat(withTiming(angulo, { duration: 120 }), 6, true);
     setTimeout(() => {
       setJaAnimou(true);
@@ -61,7 +61,7 @@ export default function Detalhes(props) {
           <TouchableOpacity 
             style={styles.botao} 
             activeOpacity={0.6}
-            onPress={() => makeRotacao()}
+            onPress={() => fazerRotacao()}
           >
             <Text style={styles.botaoTexto}>Notificar consulta</Text>
             <Animated.View style={[styles.icone, animatedStyle]}>

@@ -22,7 +22,7 @@ export default function Onboarding({ navigation }) {
 
   LayoutAnimation.configureNext(CustomAnimation);
 
-  function clicoNoBotao() {
+  function clicouNoBotao() {
     if(fazerLogin) {
       navigation.navigate('Principal');
     } else {
@@ -69,7 +69,7 @@ export default function Onboarding({ navigation }) {
             </View>
             }
 
-            <TouchableOpacity style={styles.botao} onPress={clicoNoBotao}>
+            <TouchableOpacity style={styles.botao} onPress={clicouNoBotao}>
               <Text style={styles.botaoTexto}>{fazerLogin? 'Entrar' : 'Começar'}</Text>
             </TouchableOpacity>
           </View>
